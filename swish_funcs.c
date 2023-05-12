@@ -16,7 +16,7 @@
 #define MAX_ARGS 10
 
 int tokenize(char *s, strvec_t *tokens) {
-    // TODO Task 0: Tokenize string s
+    // Tokenize string s
     // Assume each token is separated by a single space (" ")
     // Use the strtok() function to accomplish this
     // Add each token to the 'tokens' parameter (a string vector)
@@ -37,7 +37,7 @@ int tokenize(char *s, strvec_t *tokens) {
 }
 
 int run_command(strvec_t *tokens) {
-    // TODO Task 4: You need to do two items of setup before exec()'ing
+    // Need to do two items of setup before exec()'ing
     // 1. Restore the signal handlers for SIGTTOU and SIGTTIN to their defaults.
     // The code in main() within swish.c sets these handlers to the SIG_IGN value.
     // Adapt this code to use sigaction() to set the handlers to the SIG_DFL value.
@@ -59,7 +59,7 @@ int run_command(strvec_t *tokens) {
         perror("setpgid");
         return 1;
     }
-    // TODO Task 3: Extend this function to perform output redirection before exec()'ing
+    // Extend this function to perform output redirection before exec()'ing
     // Check for '<' (redirect input), '>' (redirect output), '>>' (redirect and append output)
     // entries inside of 'tokens' (the strvec_find() function will do this for you)
     // Open the necessary file for reading (<), writing (>), or appending (>>)
@@ -144,12 +144,10 @@ int run_command(strvec_t *tokens) {
     if (endProgram != 0) {
         strvec_take(tokens, endProgram);
     }
-    // TODO Task 2: Execute the specified program (token 0) with the
+    // Execute the specified program (token 0) with the
     // specified command-line arguments
     // THIS FUNCTION SHOULD BE CALLED FROM A CHILD OF THE MAIN SHELL PROCESS
-    // Hint: Build a string array from the 'tokens' vector and pass this into execvp()
-    // Another Hint: You have a guarantee of the longest possible needed array, so you
-    // won't have to use malloc.
+    // Build a string array from the 'tokens' vector and pass this into execvp()
     char *strarr[MAX_ARGS + 1];  // + 1 is to make space for the NULL sentinel value
     int i = 0;
     char *temp;
@@ -168,10 +166,9 @@ int run_command(strvec_t *tokens) {
 }
 
 int resume_job(strvec_t *tokens, job_list_t *jobs, int is_foreground) {
-    // TODO Task 5: Implement the ability to resume stopped jobs in the foreground
+    // Implement the ability to resume stopped jobs in the foreground
     // 1. Look up the relevant job information (in a job_t) from the jobs list
     //    using the index supplied by the user (in tokens index 1)
-    //    Feel free to use sscanf() or atoi() to convert this string to an int
     // 2. Call tcsetpgrp(STDIN_FILENO, <job_pid>) where job_pid is the job's process ID
     // 3. Send the process the SIGCONT signal with the kill() system call
     // 4. Use the same waitpid() logic as in main -- dont' forget WUNTRACED
@@ -212,7 +209,7 @@ int resume_job(strvec_t *tokens, job_list_t *jobs, int is_foreground) {
             return -1;
         }
     }  // else - "bg"
-    // TODO Task 6: Implement the ability to resume stopped jobs in the background.
+    // Implement the ability to resume stopped jobs in the background.
     // This really just means omitting some of the steps used to resume a job in the foreground:
     // 1. DO NOT call tcsetpgrp() to manipulate foreground/background terminal process group
     // 2. DO NOT call waitpid() to wait on the job
@@ -240,7 +237,7 @@ int resume_job(strvec_t *tokens, job_list_t *jobs, int is_foreground) {
 }
 
 int await_background_job(strvec_t *tokens, job_list_t *jobs) {
-    // TODO Task 6: Wait for a specific job to stop or terminate
+    // Wait for a specific job to stop or terminate
     // 1. Look up the relevant job information (in a job_t) from the jobs list
     //    using the index supplied by the user (in tokens index 1)
     // 2. Make sure the job's status is JOB_BACKGROUND (no sense waiting for a stopped job)
@@ -275,7 +272,7 @@ int await_background_job(strvec_t *tokens, job_list_t *jobs) {
 }
 
 int await_all_background_jobs(job_list_t *jobs) {
-    // TODO Task 6: Wait for all background jobs to stop or terminate
+    // Wait for all background jobs to stop or terminate
     // 1. Iterate through the jobs list, ignoring any stopped jobs
     // 2. For a background job, call waitpid() with WUNTRACED.
     // 3. If the job has stopped (check with WIFSTOPPED), change its
