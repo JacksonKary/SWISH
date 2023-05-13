@@ -38,7 +38,7 @@ If the user input does not match any built-in shell command, treat the input as 
   <li>  <code>swish.c</code> : Implements the command-line interface for the swish shell.
   <li>  <code>swish_funcs.h</code> : Header file for swish helper functions.
   <li>  <code>swish_funcs.c</code> : Implementations of swish helper functions.
-  <li>  <code>job_list.h.h</code> : Header file for a linked list data structure to store terminal jobs.
+  <li>  <code>job_list.h</code> : Header file for a linked list data structure to store terminal jobs.
   <li>  <code>job_list.c</code> : Implementation of the linked list data structure for terminal jobs.
   <li>  <code>string_vector.h</code> : Header file for a vector data structure to store strings.
   <li>  <code>string_vector.c</code> : Implementation of the string vector data structure.
