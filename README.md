@@ -50,7 +50,7 @@ If the user input does not match any built-in shell command, treat the input as 
 A Makefile is provided as part of this project. This file supports the following commands:
 
 <ul>
-  <li>  <code>make</code> : Compile all code, produce an executable minitar program.
+  <li>  <code>make</code> : Compile all code, produce an executable program.
   <li>  <code>make clean</code> : Remove all compiled items. Useful if you want to recompile everything from scratch.
   <li>  <code>make clean-tests</code> : Remove all files produced during execution of the tests.
   <li>  <code>make zip</code> : Create a zip file for submission to Gradescope
