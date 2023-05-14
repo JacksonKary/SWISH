@@ -43,6 +43,12 @@ If the user input does not match any built-in shell command, treat the input as 
   <li>  <code>string_vector.h</code> : Header file for a vector data structure to store strings.
   <li>  <code>string_vector.c</code> : Implementation of the string vector data structure.
   <li>  <code>Makefile</code> : Build file to compile and run test cases.
+  <li>  <code>test_cases</code> Folder, which contains:
+  <ul>
+    <li>  <code>input</code> : Input files used in automated testing cases
+    <li>  <code>resources</code> : More input files
+    <li>  <code>output</code> : Expected output
+  </ul>  
 </ul>
 
 ## Running Tests
