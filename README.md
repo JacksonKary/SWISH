@@ -30,7 +30,7 @@ The goal of this project is to write a simplified command-line shell called swis
 If the user input does not match any built-in shell command, treat the input as a program name and command-line arguments.
 
 ## Diagram of the lifecycle of processes in SWISH:
-<img width="1469" alt="proj2_job_lifecycle-1" src="https://github.com/JacksonKary/SWISH/assets/117691954/1352f1cc-638b-4c99-8f25-baa2f47569e0">
+![image](https://github.com/JacksonKary/SWISH/assets/117691954/5ce06de0-b111-4c8f-89ee-2625038ab099)
 
 
 ## What is in this directory?
